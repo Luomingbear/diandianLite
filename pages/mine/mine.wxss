@@ -1,0 +1,50 @@
+/* pages/mine/mine.wxss */
+
+.heard_layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50rpx;
+  background: #eff1f4;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.item_layout {
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 20rpx;
+  justify-content: center;
+  align-items: Center;
+}
+
+.icon_left {
+  width: 1em;
+  height: 1em;
+  float: left;
+}
+
+.title_text {
+  flex: auto;
+  font-size: 1em;
+  margin-left: 10rpx;
+  color: #221d1e;
+}
+
+.icon_right {
+  width: 1em;
+  height: 1em;
+  float: right;
+  margin-left: 10rpx;
+}

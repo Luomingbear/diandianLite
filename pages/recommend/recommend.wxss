@@ -1,0 +1,86 @@
+/* pages/near/near.wxss */
+
+.card_list {
+  background: #eff1f4;
+}
+
+.part_line {
+  height: 20rpx;
+  display: flex;
+}
+
+.card_top {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 20rpx;
+}
+
+.card_bottom {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  background: #fff;
+  align-items: center;
+  overflow: auto;
+}
+
+.item_middle {
+  flex: 1;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  overflow: hidden;
+}
+
+.avatar {
+  float: left;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.nickname {
+  display: flex;
+  font-size: 1em;
+  color: #221d1e;
+  margin-left: 10rpx;
+}
+
+.rest_time {
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 0.7em;
+  color: #898989;
+  margin-left: 10rpx;
+}
+
+.cover_right {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.content {
+  height: 2.5em;
+  font-size: 1em;
+  color: #221d1e;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0px 20rpx;
+}
+
+.location_icon {
+  width: 0.7em;
+  height: 0.7em;
+  margin-top: 20rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+
+.location_text {
+  width: 100%;
+  margin-top: 20rpx;
+  font-size: 0.7em;
+  color: #898989;
+}

@@ -1,0 +1,21 @@
+<!--pages/login/login.wxml-->
+
+<view class="text_middle">
+  <text class="text_middle">点点账号登陆</text>
+</view>
+<view class="input_layout">
+  <text class="input_title">账号</text>
+  <input class="input_edit" style="text" placeholder="请输入邮箱" bindinput="emailInput"/>
+</view>
+<view class="part_line"></view>
+
+<view class="input_layout">
+  <text class="input_title">密码</text>
+  <input class="input_edit" style="text" password="true" placeholder="请输入密码"  bindinput="passwordInput"/>
+</view>
+
+<view class="line"></view>
+
+<button class="login_button" type="primary" bindtap="dLogin">登陆</button>
+<view class="or_text_middle"><text>或者</text></view>
+<button class="login_button" bindtap="dRegister">注册</button>

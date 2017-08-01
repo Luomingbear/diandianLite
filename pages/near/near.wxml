@@ -1,0 +1,26 @@
+<!--pages/near/near.wxml-->
+<view class="card_list" wx:for="{{cardList}}" wx:key="unique">
+  <view class="card_item">
+    <view class="part_line"></view>
+    <view class="card_top">
+      <image src="{{item.userInfo.avatar}}" class="avatar"></image>
+      <view class="">
+        <text class="nickname">{{item.userInfo.nickname}}</text>
+        <text class="rest_time">{{item.destroyTime}}</text>
+      </view>
+    </view>
+    <view class="card_bottom">
+
+      <view wx:if="{{item.cover!=''&&item.cover!=null}}">
+        <image src="{{item.cover}}" class="cover_right"></image>
+      </view>
+      <view>
+        <text class="content">{{item.content}}</text>
+        <view>
+          <image src="../../image/location.png" class="location_icon"></image>
+          <text class="location_text">{{item.locationTitle}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
