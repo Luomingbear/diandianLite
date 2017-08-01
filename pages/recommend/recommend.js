@@ -16,6 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  onReady:function(options){
     var that = this;
     wx.showLoading({
       title: '正在拷问服务器',
@@ -26,7 +30,7 @@ Page({
         lng = res.longitude;
 
         var recommendUtil = require('../../utils/getStoryUtil.js')
-        recommendUtil.getRecommendStory(1,that)
+        recommendUtil.getRecommendStory(1, that)
       }
     })
   },

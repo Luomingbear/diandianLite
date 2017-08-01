@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userInfo: {},
-    buttonBgo:'#fff',
+    buttonBgo: '#fff',
     buttonBgt: '#fff'
   },
 
@@ -46,7 +46,7 @@ Page({
     })
   },
 
-  touchStart1:function(e){
+  touchStart1: function (e) {
     var that = this
     that.setData({
       buttonBgo: "#eff1f4"
@@ -60,12 +60,22 @@ Page({
     })
   },
 
-  touchEnd:function(e){
+  touchEnd: function (e) {
 
     var that = this
     that.setData({
       buttonBgo: "#fff",
       buttonBgt: "#fff",
     })
+  },
+
+  myStoryTap: function (e) {
+    wx.navigateTo({
+      url: '../mystory/mystory',
+    })
+  },
+
+  settingTap: function (e) {
+
   }
 })

@@ -1,0 +1,81 @@
+.card_top {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 20rpx;
+}
+
+.card_bottom {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  background: #fff;
+  align-items: center;
+  overflow: auto;
+}
+
+.avatar {
+  float: left;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.nickname {
+  display: flex;
+  font-size: 1em;
+  color: #221d1e;
+  margin-left: 10rpx;
+}
+
+.rest_time {
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 0.7em;
+  color: #898989;
+  margin-left: 10rpx;
+}
+
+.content_layout{
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+}
+
+.cover_right {
+  display: flex;
+  width: 150rpx;
+  height: 150rpx;
+  float: right;
+}
+
+.content {
+  height: 2.5em;
+  font-size: 1em;
+  color: #221d1e;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0px 20rpx;
+}
+
+.location_layout
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.location_icon {
+  width: 0.7em;
+  height: 0.7em;
+  margin-top: 20rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+
+.location_text {
+  margin-top: 20rpx;
+  font-size: 0.7em;
+  color: #898989;
+}

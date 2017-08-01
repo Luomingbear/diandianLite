@@ -1,4 +1,4 @@
-<!--pages/recommend/recommend.wxml-->
+<!--pages/mystory/mystory.wxml-->
 <import src="../../template/temp.wxml" />
 <view class="card_list" wx:for="{{cardList}}" wx:key="unique">
   <template is="cardItem" data="{{...item}}"></template>

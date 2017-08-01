@@ -3,7 +3,8 @@
     "pages/near/near",
     "pages/recommend/recommend",
     "pages/mine/mine",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mystory/mystory"
   ],
   "window": {
     "backgroundTextStyle": "light",

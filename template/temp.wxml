@@ -1,0 +1,22 @@
+<template name="cardItem">
+<view class="part_line"></view>
+    <view class="card_top">
+      <image src="{{userInfo.avatar}}" class="avatar"></image>
+      <view class="">
+        <text class="nickname">{{userInfo.nickname}}</text>
+        <text class="rest_time">{{destroyTime}}</text>
+      </view>
+    </view>
+    <view class="card_bottom">
+      <view class="content_layout">
+        <text class="content">{{content}}</text>
+        <view class="location_layout">
+          <image src="../../image/location.png" class="location_icon"></image>
+          <text class="location_text">{{locationTitle}}</text>
+        </view>
+      </view>
+      <view wx:if="{{cover!=''&&cover!=null}}">
+        <image src="{{cover}}" class="cover_right"></image>
+      </view>
+    </view>
+</template>

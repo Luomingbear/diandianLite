@@ -3,7 +3,7 @@
   <view class="heard_layout">
     <view bindtap="bindViewTap" class="userinfo">
       <image class="userinfo-avatar" src="{{userInfo.avatar}}"></image>
-      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+      <text class="nickname">{{userInfo.nickname}}</text>
     </view>
   </view>
 

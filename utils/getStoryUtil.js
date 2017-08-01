@@ -12,7 +12,7 @@ function getRecommendStory(page, that) {
     success: function (res) {
       var list = JSON.parse(res.data);
       that.data.items = list.data;
-      // console.log(list.data);
+      console.log(list.data);
       that.setData({
         cardList: list.data
       });
@@ -48,6 +48,32 @@ function getNearStory(postData, page, that) {
   })
 }
 
+function getUserStory(uid, page, that){
+  wx.request({
+    url: 'https://api.storyshu.com/getUserStory.php',
+    data: {
+      userId: uid,
+      page: page
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    dataType: "JSON",
+    success: function (res) {
+      var list = JSON.parse(res.data);
+      that.data.items = list.data;
+      console.log(list.data);
+      that.setData({
+        cardList: list.data
+      });
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+    }
+  })
+}
+
 
 module.exports.getRecommendStory = getRecommendStory
 module.exports.getNearStory = getNearStory
+module.exports.getUserStory = getUserStory
