@@ -22,10 +22,12 @@ Page({
     var that = this
     var myStoryUtil = require("../../utils/getStoryUtil.js")
 
+    wx.showLoading({
+      title: '正在拷问服务器',
+    })
     var did = wx.getStorage({
       key: 'dId',
       success: function (res) {
-        console.log(res)
         myStoryUtil.getUserStory(res.data, page, that)
       }
     }
@@ -37,6 +39,25 @@ Page({
    */
   onPullDownRefresh: function () {
 
+  },
+
+  clickSeeMore: function (e) {
+    var that = this
+    var myStoryUtil = require("../../utils/getStoryUtil.js")
+
+    wx.showLoading({
+      title: '正在拷问服务器',
+    })
+
+    page++
+
+    var did = wx.getStorage({
+      key: 'dId',
+      success: function (res) {
+        myStoryUtil.getUserStory(res.data, page, that)
+      }
+    }
+    )
   },
 
 })

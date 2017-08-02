@@ -1,12 +1,38 @@
+<!-- 卡片模板 -->
 <template name="cardItem">
 <view class="part_line"></view>
+    <!-- 卡片顶部 -->
     <view class="card_top">
       <image src="{{userInfo.avatar}}" class="avatar"></image>
-      <view class="">
+      <view class="nickname_layout">
         <text class="nickname">{{userInfo.nickname}}</text>
         <text class="rest_time">{{destroyTime}}</text>
       </view>
+
+      <!-- 点赞 -->
+      <view class="click_layout">
+        <view wx:if="{{isLike}}"><image src="../../image/like.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unlike.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{likeNum}}</text>
+      </view>
+
+      <!-- 喝倒彩 -->
+      <view class="click_layout">
+        <view wx:if="{{isOppose}}"><image src="../../image/oppose.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unoppose.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{opposeNum}}</text>
+      </view>
+
+      <!-- 评论 -->
+      <view class="click_layout">
+        <view wx:if="{{isComment}}"><image src="../../image/message.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unmessage.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{commentNum}}</text>
+      </view>
+
     </view>
+
+    <!-- 卡片底部 -->
     <view class="card_bottom">
       <view class="content_layout">
         <text class="content">{{content}}</text>
@@ -15,8 +41,24 @@
           <text class="location_text">{{locationTitle}}</text>
         </view>
       </view>
-      <view wx:if="{{cover!=''&&cover!=null}}">
+      <view wx:if="{{cover!=''&&cover!=null}}" >
         <image src="{{cover}}" class="cover_right"></image>
       </view>
     </view>
+</template>
+
+<!-- 没有更多的模板 -->
+<template name="noMore">
+<view class="part_line"></view>
+<view class="middle_text">
+  <text>没有更多了</text>
+</view>
+</template>
+
+<!-- 加载更多的模板 -->
+<template name="seeMore">
+  <view class="part_line"></view>
+  <view class="middle_text">
+    <text>加载更多</text>
+  </view>
 </template>

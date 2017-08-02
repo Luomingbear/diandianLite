@@ -22,7 +22,7 @@
 }
 
 .nickname{
-  font-size: 1.2em;
+  font-size: 18pt;
 }
 
 .item_layout {
@@ -34,21 +34,21 @@
 }
 
 .icon_left {
-  width: 1em;
-  height: 1em;
+  width: 16pt;
+  height: 16pt;
   float: left;
 }
 
 .title_text {
   flex: auto;
-  font-size: 1em;
+  font-size: 14pt;
   margin-left: 10rpx;
   color: #221d1e;
 }
 
 .icon_right {
-  width: 1em;
-  height: 1em;
+  width: 16pt;
+  height: 16pt;
   float: right;
   margin-left: 10rpx;
 }

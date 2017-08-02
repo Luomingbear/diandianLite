@@ -15,3 +15,9 @@
   display: flex;
   background: #eff1f4;
 }
+
+.small_gray_text{
+  font-size: 11pt;
+  color: #898989;
+}
+

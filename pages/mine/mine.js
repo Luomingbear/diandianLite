@@ -9,7 +9,8 @@ Page({
   data: {
     userInfo: {},
     buttonBgo: '#fff',
-    buttonBgt: '#fff'
+    buttonBgt: '#fff',
+    buttonBgr: '#fff',
   },
 
   /**
@@ -58,6 +59,12 @@ Page({
     that.setData({
       buttonBgt: "#eff1f4"
     })
+
+  }, touchStart3: function (e) {
+    var that = this
+    that.setData({
+      buttonBgr: "#eff1f4"
+    })
   },
 
   touchEnd: function (e) {
@@ -66,6 +73,7 @@ Page({
     that.setData({
       buttonBgo: "#fff",
       buttonBgt: "#fff",
+      buttonBgr: "#fff",
     })
   },
 

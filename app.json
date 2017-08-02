@@ -7,7 +7,7 @@
     "pages/mystory/mystory"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "点点",
     "navigationBarTextStyle": "black"

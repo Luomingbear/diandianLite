@@ -19,10 +19,12 @@ Page({
   },
 
   onReady: function () {
-    wx.showLoading({
-      title: '正在拷问服务器',
-    })
     var that = this;
+
+    wx.showLoading({
+      title: '正在获取定位',
+    })
+    
     wx.getLocation({
       success: function (res) {
         var lat = res.latitude;
@@ -34,6 +36,11 @@ Page({
           longitude: lng
         };
 
+        wx.setStorage({
+          key: 'latlng',
+          data: postData,
+        })
+
         recommendUtil.getNearStory(postData, 1, that);
       }
     })
@@ -44,9 +51,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '正在拷问服务器',
-    })
     var that = this;
     recommendUtil.getNearStory(postData, 1, that);
   },

@@ -5,6 +5,46 @@
   padding: 20rpx;
 }
 
+.avatar {
+  float: left;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.nickname_layout {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+}
+
+.nickname {
+  display: flex;
+  font-size: 14pt;
+  color: #221d1e;
+  margin-left: 10rpx;
+}
+
+.rest_time {
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 11pt;
+  color: #898989;
+  margin-left: 10rpx;
+}
+
+.click_layout {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10rpx;
+}
+
+.icon_normal {
+  width: 12pt;
+  height: 12pt;
+}
+
 .card_bottom {
   display: flex;
   flex-direction: row;
@@ -14,29 +54,7 @@
   overflow: auto;
 }
 
-.avatar {
-  float: left;
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-}
-
-.nickname {
-  display: flex;
-  font-size: 1em;
-  color: #221d1e;
-  margin-left: 10rpx;
-}
-
-.rest_time {
-  margin-top: 10rpx;
-  display: flex;
-  font-size: 0.7em;
-  color: #898989;
-  margin-left: 10rpx;
-}
-
-.content_layout{
+.content_layout {
   display: flex;
   flex: auto;
   flex-direction: column;
@@ -47,11 +65,12 @@
   width: 150rpx;
   height: 150rpx;
   float: right;
+  overflow: hidden;
 }
 
 .content {
   height: 2.5em;
-  font-size: 1em;
+  font-size: 14pt;
   color: #221d1e;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -60,15 +79,14 @@
   margin: 0px 20rpx;
 }
 
-.location_layout
-{
+.location_layout {
   display: flex;
   flex-direction: row;
 }
 
 .location_icon {
-  width: 0.7em;
-  height: 0.7em;
+  width: 12pt;
+  height: 12pt;
   margin-top: 20rpx;
   float: left;
   margin-left: 20rpx;
@@ -76,6 +94,14 @@
 
 .location_text {
   margin-top: 20rpx;
-  font-size: 0.7em;
+  font-size: 11pt;
   color: #898989;
+}
+
+.middle_text {
+  display: flex;
+  height: 3em;
+  text-align: center;
+  justify-content: center;
+  align-items: Center;
 }

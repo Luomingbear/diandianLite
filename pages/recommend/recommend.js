@@ -16,32 +16,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
-  onReady:function(options){
+  onReady: function (options) {
     var that = this;
-    wx.showLoading({
-      title: '正在拷问服务器',
-    })
-    wx.getLocation({
+    var recommendUtil = require('../../utils/getStoryUtil.js')
+    wx.getStorage({
+      key: 'latlng',
       success: function (res) {
-        lat = res.latitude;
-        lng = res.longitude;
 
-        var recommendUtil = require('../../utils/getStoryUtil.js')
         recommendUtil.getRecommendStory(1, that)
+      },
+      fail: function (res) {
+        wx.getLocation({
+          success: function (res) {
+            var lat = res.latitude;
+            var lng = res.longitude;
+
+            postData = {
+              scale: 16,
+              latitude: lat,
+              longitude: lng
+            };
+
+            wx.setStorage({
+              key: 'latlng',
+              data: postData,
+            })
+
+            recommendUtil.getRecommendStory(1, that)
+          }
+        })
       }
     })
   },
 
   onPullDownRefresh: function (e) {
-    wx.showLoading({
-      title: '正在拷问服务器',
-    })
-    
     var that = this;
     var recommendUtil = require('../../utils/getStoryUtil.js')
+
     recommendUtil.getRecommendStory(1, that)
   },
 

@@ -11,7 +11,6 @@ function getRecommendStory(page, that) {
     dataType: "JSON",
     success: function (res) {
       var list = JSON.parse(res.data);
-      that.data.items = list.data;
       console.log(list.data);
       that.setData({
         cardList: list.data
@@ -37,7 +36,6 @@ function getNearStory(postData, page, that) {
     dataType: "JSON",
     success: function (res) {
       var list = JSON.parse(res.data);
-      that.data.items = list.data;
       // console.log(list.data);
       that.setData({
         cardList: list.data
@@ -62,11 +60,12 @@ function getUserStory(uid, page, that){
     dataType: "JSON",
     success: function (res) {
       var list = JSON.parse(res.data);
-      that.data.items = list.data;
-      console.log(list.data);
+      var beforelist = that.data.cardList
+      beforelist.concat(list.data) 
+      console.log(beforelist.concat(list.data));
       that.setData({
-        cardList: list.data
-      });
+        cardList: beforelist.concat(list.data)
+      }); 
       wx.hideLoading();
       wx.stopPullDownRefresh();
     }
