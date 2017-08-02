@@ -38,7 +38,7 @@
         <text class="content">{{content}}</text>
         <view class="location_layout">
           <image src="../../image/location.png" class="location_icon"></image>
-          <text class="location_text">{{locationTitle}}</text>
+          <text class="location_text">{{cityName+"-"+locationTitle}}</text>
         </view>
       </view>
       <view wx:if="{{cover!=''&&cover!=null}}" >
