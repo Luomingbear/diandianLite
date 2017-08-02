@@ -17,7 +17,7 @@
     <view class="part_line"></view>
 
     <view class="item_layout" style="background:{{buttonBgt}}" bindtap="settingTap" bindtouchstart="touchStart2" bindtouchend="touchEnd">
-      <image src="../../image/setting.png" class="icon_left"></image>
+      <image src="../../image/footmark.png" class="icon_left"></image>
       <view class="title_text"><text>我的足迹</text></view>
       <image src="../../image/more.png" class="icon_right"></image>
     </view>
