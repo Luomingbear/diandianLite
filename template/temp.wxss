@@ -109,14 +109,34 @@
 
 
 /* 九宫格 */
-.nineGridList{
-  width: 90%;
+.cover_layout{
+  width:100%;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: column ;
+  flex-wrap: wrap; 
+  align-content: space-between;
+  /*justify-content:space-around;*/
+  padding : 20rpx;
+  background :#552225;
 }
 
-.nineGridItem{
-
+.cover_item{
+  width : 100%;
+  height : 700rpx;
+  overflow : hidden;
 }
 
-.nineGridImage{
+.cover_item_two{ 
+  width: 200rpx;  
+  height : 200rpx;
+  overflow : hidden;
+}
+
+.cover_item_three{
+  width: 32%;  
+  height :280rpx;
+  margin : 5rpx;
+  overflow : hidden;
 
 }

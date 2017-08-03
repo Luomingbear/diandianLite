@@ -76,11 +76,63 @@
 </template>
 
 <template name="storyDetail">
-  <view class="cardTop">
-    <image src="{{userInfo.avatar}}" class="avatar"></image>
+  <view class = "part_line"></view>
+  <view class="card_top" >
+      <image src="{{userInfo.avatar}}" class="avatar"></image>
       <view class="nickname_layout">
         <text class="nickname">{{userInfo.nickname}}</text>
         <text class="rest_time">{{destroyTime}}</text>
       </view>
+
+      <!-- 点赞 -->
+      <view class="click_layout">
+        <view wx:if="{{isLike}}"><image src="../../image/like.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unlike.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{likeNum}}</text>
+      </view>
+
+      <!-- 喝倒彩 -->
+      <view class="click_layout">
+        <view wx:if="{{isOppose}}"><image src="../../image/oppose.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unoppose.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{opposeNum}}</text>
+      </view>
+
+      <!-- 评论 -->
+      <view class="click_layout">
+        <view wx:if="{{isComment}}"><image src="../../image/message.png" class="icon_normal"></image></view>
+        <view wx:else><image src="../../image/unmessage.png" class="icon_normal"></image></view>
+        <text class="small_gray_text">{{commentNum}}</text>
+      </view>
+
   </view>
+
+  <view class= "cover_layout">
+    <text> {{content}} </text>    
+  </view>
+
+  <!-- 如果图片数量等于1张，则显示一张图片，宽度铺满屏幕，高度自适应 -->
+  <view wx:if="{{storyPictures.length==1}}">
+    <view class="cover_layout" >
+      <view class = "cover_item">
+      <image  src="{{cover}}" class = "cover_item"></image>
+      </view> 
+    </view>
+  </view>
+
+  <!-- 如果有2-4张图片显示两列 -->
+  <view wx:elif="{{storyPictures.length>1 && storyPictures.length<5}}">
+    <view wx:for-items="{{storyPictures}}"  wx:key="unique" class = "cover_layout" >
+      <view class= "cover_item_two"><image  src="{{item}}"  class= "cover_item_two"></image></view>
+    </view>    
+  </view>  
+
+<!-- 如果有5-9张图片显示两列 -->
+  <view wx:elif="{{storyPictures.length>1 && storyPictures.length<10}}">
+    <view wx:for-items="{{storyPictures}}"  wx:key="unique" class = "cover_layout" >
+      <view><image  src="{{item}}"  class= "cover_item_three"></image></view>
+    </view>    
+  </view>  
+
+  <view class= "part_line"></view>
 </template>

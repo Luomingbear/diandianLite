@@ -60,5 +60,14 @@ Page({
    */
   onReachBottom: function () {
 
-  }
+  },
+
+   // 跳转到具体详情
+  navigateToDetail: function (e) {
+    console.log(e)
+    var id = e.currentTarget.id
+    wx.navigateTo({
+      url: '../storyDetail/storyDetail?id='+id,
+    })
+  },
 })
