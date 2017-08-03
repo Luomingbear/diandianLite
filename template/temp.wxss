@@ -105,3 +105,18 @@
   justify-content: center;
   align-items: Center;
 }
+
+
+
+/* 九宫格 */
+.nineGridList{
+  width: 90%;
+}
+
+.nineGridItem{
+
+}
+
+.nineGridImage{
+
+}

@@ -4,7 +4,8 @@
     "pages/recommend/recommend",
     "pages/mine/mine",
     "pages/login/login",
-    "pages/mystory/mystory"
+    "pages/mystory/mystory",
+    "pages/storyDetail/storyDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

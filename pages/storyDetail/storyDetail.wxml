@@ -1,0 +1,4 @@
+<!--pages/storyDetail/storyDetail.wxml-->
+<import src="../../template/temp.wxml" />
+
+<template is="storyDetail" data="{{...story}}"></template>

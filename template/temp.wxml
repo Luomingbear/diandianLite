@@ -1,8 +1,9 @@
 <!-- 卡片模板 -->
 <template name="cardItem">
-<view class="part_line"></view>
-    <!-- 卡片顶部 -->
-    <view class="card_top">
+  <view class="part_line"></view>
+  <view bindtap="navigateToDetail" id="{{storyId}}" >
+  <!-- 卡片顶部 -->
+    <view class="card_top" >
       <image src="{{userInfo.avatar}}" class="avatar"></image>
       <view class="nickname_layout">
         <text class="nickname">{{userInfo.nickname}}</text>
@@ -45,6 +46,8 @@
         <image src="{{cover}}" class="cover_right"></image>
       </view>
     </view>
+  </view>
+    
 </template>
 
 <!-- 没有更多的模板 -->
@@ -58,7 +61,26 @@
 <!-- 加载更多的模板 -->
 <template name="seeMore">
   <view class="part_line"></view>
-  <view class="middle_text">
+  <view class="middle_text" bindtap="clickSeeMore">
     <text>加载更多</text>
+  </view>
+</template>
+
+<!-- 九宫格图 -->
+<template name="nineGridLayout">
+  <view class="nineGridList" wx:for="{{storyPictures}}">
+    <view class="nineGridItem" bindtap="showImage">
+    <image src="{{item}}" class="nineGridImage"></image>
+    </view>
+  </view>
+</template>
+
+<template name="storyDetail">
+  <view class="cardTop">
+    <image src="{{userInfo.avatar}}" class="avatar"></image>
+      <view class="nickname_layout">
+        <text class="nickname">{{userInfo.nickname}}</text>
+        <text class="rest_time">{{destroyTime}}</text>
+      </view>
   </view>
 </template>

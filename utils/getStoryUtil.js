@@ -72,7 +72,31 @@ function getUserStory(uid, page, that){
   })
 }
 
+function getStoryInfo(storyId,that){
+  wx.request({
+    url: 'https://api.storyshu.com/getStoryInfo.php',
+    data: {
+      storyId: storyId,
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    dataType: "JSON",
+    success: function (res) {
+      var result = JSON.parse(res.data);
+      console.log(result)
+      that.setData({
+        story:result.data
+      });
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+    }
+  })
+}
+
 
 module.exports.getRecommendStory = getRecommendStory
 module.exports.getNearStory = getNearStory
 module.exports.getUserStory = getUserStory
+module.exports.getStoryInfo = getStoryInfo
