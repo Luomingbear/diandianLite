@@ -106,37 +106,28 @@
   align-items: Center;
 }
 
-
-
 /* 九宫格 */
-.cover_layout{
-  width:100%;
-  display: -webkit-flex; /* Safari */
-  display: flex;
-  flex-direction: column ;
-  flex-wrap: wrap; 
-  align-content: space-between;
-  /*justify-content:space-around;*/
-  padding : 20rpx;
-  background :#552225;
+
+.cover_layout {
+  margin: 20rpx;
 }
 
-.cover_item{
-  width : 100%;
-  height : 700rpx;
-  overflow : hidden;
+.cover_item {
+  width: 100%;
 }
 
-.cover_item_two{ 
-  width: 200rpx;  
-  height : 200rpx;
-  overflow : hidden;
+.cover_item_two {
+  width: 48%;
+  height: 350rpx;
+  overflow: hidden;
+  margin: 5rpx;
+  float: left ;
 }
 
-.cover_item_three{
-  width: 32%;  
-  height :280rpx;
-  margin : 5rpx;
-  overflow : hidden;
-
+.cover_item_three {
+  width: 32%;
+  height: 220rpx;
+  margin: 5rpx;
+  overflow: hidden;
+  float: left ;
 }
