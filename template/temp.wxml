@@ -147,7 +147,13 @@
             <text class="nickname">{{userInfo.nickname}}</text>
             <text class="rest_time">{{createTime}}</text>
             <view class = "margin_normal"></view>
-            <text> {{comment}} </text> 
+            <view wx:if="{{reply==''}}">
+              <text class = "comment"> {{comment}} </text>
+            </view>  
+            <view wx:else>
+              <text class = "comment"> {{reply}} </text>
+              <text class = "reply"> {{comment}} </text>
+            </view>  
           </view>
         </view>
         <view class = "content_full">   </view>
