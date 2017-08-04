@@ -1,4 +1,13 @@
 <!--pages/storyDetail/storyDetail.wxml-->
 <import src="../../template/temp.wxml" />
-
+<!-- 故事详情 -->
 <template is="storyDetail" data="{{...story}}"></template>
+
+<view class = "part_line"></view>
+
+<!-- 评论 -->
+<view class="middle_text">热门评论</view>
+<view wx:for-items="{{commentList}}">
+	<template is="commentItem" data= "{{...item}}"></template>
+</view>		
+

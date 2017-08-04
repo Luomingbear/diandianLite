@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    story:{}
+    story:{},
+    commentList:[]
   },
 
   /**
@@ -18,13 +19,8 @@ Page({
     var storyUtil = require("../../utils/getStoryUtil.js")
     var that = this
     storyUtil.getStoryInfo(sid,that)
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+    storyUtil.getStoryHotComment(sid,that)
   },
 
   /**
@@ -33,11 +29,4 @@ Page({
   onPullDownRefresh: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

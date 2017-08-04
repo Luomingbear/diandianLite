@@ -7,13 +7,27 @@
 }
 
 .part_line {
-  height: 20rpx;
+  height: 10rpx;
   display: flex;
   background: #eff1f4;
+}
+
+.line{
+  height: 1px;
+  display: flex;
+  background: #eff1f4;	
 }
 
 .small_gray_text{
   font-size: 11pt;
   color: #898989;
+}
+
+.margin_small{
+	height:10rpx;
+}
+
+.margin_normal{
+	height:20rpx;
 }
 

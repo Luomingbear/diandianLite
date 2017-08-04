@@ -1,3 +1,10 @@
+.card_layout{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:20rpx;
+}
+
 .card_top {
   display: flex;
   flex-direction: row;
@@ -9,6 +16,13 @@
   float: left;
   width: 90rpx;
   height: 90rpx;
+  border-radius: 50%;
+}
+
+.avatar_small{
+   float: left;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
 }
 
@@ -106,10 +120,16 @@
   align-items: Center;
 }
 
+/*文本内容*/
+.content_full{
+  margin :0 20rpx;
+}
+
 /* 九宫格 */
 
 .cover_layout {
-  margin: 20rpx;
+  margin : 20rpx;
+
 }
 
 .cover_item {
@@ -131,3 +151,4 @@
   overflow: hidden;
   float: left ;
 }
+
