@@ -12,26 +12,47 @@
   background: #eff1f4;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.line{
+.fixed{
+  position: fixed;
+}
+
+.line {
   height: 1px;
   display: flex;
-  background: #eff1f4;	
+  background: #eff1f4;
 }
 
-.small_gray_text{
+.small_gray_text {
   font-size: 11pt;
   color: #898989;
 }
 
-.margin_small{
-	height:10rpx;
+.margin_small {
+  margin: 10rpx 0;
 }
 
-.margin_normal{
-	height:20rpx;
+.margin_normal {
+  margin:  20rpx 0;
 }
 
+/*水平布局*/
+
+.horizontal_layout {
+  display: flex;
+  flex-direction: row;
+}
+
+/*竖直布局*/
+
+.vertical_layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical_middle {
+  align-items: center;
+}

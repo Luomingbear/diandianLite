@@ -14,20 +14,19 @@
       <image src="../../image/more.png" class="icon_right"></image>
     </view>
 
-    <view class="part_line"></view>
+    <!-- <view class="part_line"></view>
 
-    <view class="item_layout" style="background:{{buttonBgt}}" bindtap="settingTap" bindtouchstart="touchStart2" bindtouchend="touchEnd">
+    <view class="item_layout" style="background:{{buttonBgt}}" bindtap="myTagTap" bindtouchstart="touchStart2" bindtouchend="touchEnd">
       <image src="../../image/footmark.png" class="icon_left"></image>
-      <view class="title_text"><text>我的足迹</text></view>
+      <view class="title_text"><text>我的标签</text></view>
       <image src="../../image/more.png" class="icon_right"></image>
-    </view>
+    </view> -->
 
     <view class="part_line"></view>
 
-    <view class="item_layout" style="background:{{buttonBgr}}" bindtap="settingTap" bindtouchstart="touchStart3" bindtouchend="touchEnd">
+    <view class="item_layout" style="background:{{buttonBgr}}" bindtap="logoutTap" bindtouchstart="touchStart3" bindtouchend="touchEnd">
       <image src="../../image/setting.png" class="icon_left"></image>
-      <view class="title_text"><text>设置</text></view>
-      <image src="../../image/more.png" class="icon_right"></image>
+      <view class="title_text"><text>退出登陆</text></view>
     </view>
 
     <view class="part_line"></view>

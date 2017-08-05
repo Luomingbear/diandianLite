@@ -4,7 +4,7 @@
   <template is="cardItem" data="{{...item}}" bindtap="navigateToDetail" id="{{item.id}}"></template>
 </view>
 
-<view wx:if="{{cardList.length<10}}">
+<view wx:if="{{cardList.length%10!=0}}">
   <template is="noMore"></template>
 </view>
 <view wx:else>

@@ -18,4 +18,4 @@
 
 <button class="login_button" type="primary" bindtap="dLogin">登陆</button>
 <view class="or_text_middle"><text>或者</text></view>
-<button class="login_button" bindtap="dRegister">注册</button>
+<button class="login_button" bindtap="weixinLoginTap">微信登陆</button>

@@ -40,7 +40,25 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    var that = this
+    var myStoryUtil = require("../../utils/getStoryUtil.js")
 
+    page = 1 
+    myStoryUtil.getUserStory(dId, page, that)
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    wx.showLoading({
+      title: '正在拷问服务器',
+    })
+   var that = this
+    var myStoryUtil = require("../../utils/getStoryUtil.js")
+
+    page ++
+    myStoryUtil.getUserStory(dId, page, that)
   },
 
   clickSeeMore: function (e) {

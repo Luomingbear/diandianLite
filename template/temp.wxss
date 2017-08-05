@@ -129,6 +129,7 @@
   text-align: center;
   justify-content: center;
   align-items: Center;
+  color:#898989;
 }
 
 /*文本内容*/
@@ -184,3 +185,7 @@
   color: #646464;
   background: #eff1f4;
 }
+
+
+
+

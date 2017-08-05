@@ -42,7 +42,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+     wx.showLoading({
+      title: '正在拷问服务器',
+    })
+    page++
+    var storyUtil = require("../../utils/getStoryUtil.js")
+    var that = this;
+    storyUtil.getStoryAllComment(sid,page,that);
   },
 
   clickSeeMore :function(e){

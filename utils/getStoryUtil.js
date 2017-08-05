@@ -1,8 +1,8 @@
 // 获取推荐的故事
-const SUCCEED = 200
-const FAILED = 1000
-const EMPTY = 700
-const ERROR = 500
+var SUCCEED = 200
+var FAILED = 1000
+var EMPTY = 700
+var ERROR = 500
 
 function getRecommendStory(page, that) {
   wx.request({
@@ -22,7 +22,7 @@ function getRecommendStory(page, that) {
       console.log(list)
       for (var i = 0; i < list.length; i++) {
         var item = list[i]
-        var time = util.formatTime(item.createTime)
+        var time = util.formatCreateTime(item.createTime)
         item.createTime = time
         item.destroyTime = util.formatDestroyTime(item.destroyTime)
       }
@@ -55,7 +55,7 @@ function getNearStory(postData, page, that) {
       var list = parse.data
       for (var i = 0; i < list.length; i++) {
         var item = list[i]
-        var time = util.formatTime(item.createTime)
+        var time = util.formatCreateTime(item.createTime)
         item.createTime = time
         item.destroyTime = util.formatDestroyTime(item.destroyTime)
       }
@@ -88,7 +88,7 @@ function getUserStory(uid, pages, that) {
       var list = parse.data
       for (var i = 0; i < list.length; i++) {
         var item = list[i]
-        var time = util.formatTime(item.createTime)
+        var time = util.formatCreateTime(item.createTime)
         item.createTime = time
         item.destroyTime = util.formatDestroyTime(item.destroyTime)
       }
@@ -123,7 +123,8 @@ function getStoryInfo(storyId, that) {
       item.destroyTime = util.formatDestroyTime(item.destroyTime)
 
       that.setData({
-        story: item
+        story: item,
+        outDate: util.isOutDate(item.destroyTime)
       });
       wx.hideLoading();
       wx.stopPullDownRefresh();
@@ -149,7 +150,7 @@ function getStoryHotComment(storyId, that) {
       var util = require("util.js")
       for (var i = 0; i < list.length; i++) {
         var item = list[i]
-        item.createTime = util.formatTime(item.createTime)
+        item.createTime = util.formatCreateTime(item.createTime)
       }
       console.log(result)
       that.setData({
@@ -182,7 +183,7 @@ function getStoryAllComment(storyId, page, that) {
         var util = require("util.js")
         for (var i = 0; i < list.length; i++) {
           var item = list[i]
-          item.createTime = util.formatTime(item.createTime)
+          item.createTime = util.formatCreateTime(item.createTime)
         }
 
         var beforeList = that.data.commentList
@@ -198,9 +199,48 @@ function getStoryAllComment(storyId, page, that) {
   })
 }
 
+/**
+* 发布评论
+*/
+function issuseComment(commentData, that) {
+  wx.request({
+    url: 'https://api.storyshu.com/issueComment.php',
+    data: {
+      storyId: commentData.storyId,
+      userId: commentData.userId,
+      comment: commentData.comment,
+      createTime: commentData.createTime
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    dataType: "JSON",
+    success: function (res) {
+      var result = JSON.parse(res.data);
+      console.log(result)
+      if (result.code == SUCCEED) {
+        that.setData({
+          inputValue: '' //清空输入
+        })
+        getStoryHotComment(commentData.storyId, that)
+
+        wx.showToast({
+          title: "评论成功"
+        })
+      } else {
+        wx.showToast({
+          title: "评论失败"
+        })
+      }
+    }
+  })
+}
+
 module.exports.getRecommendStory = getRecommendStory
 module.exports.getNearStory = getNearStory
 module.exports.getUserStory = getUserStory
 module.exports.getStoryInfo = getStoryInfo
 module.exports.getStoryHotComment = getStoryHotComment
 module.exports.getStoryAllComment = getStoryAllComment
+module.exports.issuseComment = issuseComment
