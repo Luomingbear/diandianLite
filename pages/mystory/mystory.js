@@ -1,5 +1,6 @@
 // pages/mystory/mystory.js
 var page = 1 //页码
+var dId = 0
 Page({
 
   /**
@@ -13,12 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
     var that = this
     var myStoryUtil = require("../../utils/getStoryUtil.js")
 
@@ -28,7 +23,14 @@ Page({
     var did = wx.getStorage({
       key: 'dId',
       success: function (res) {
+        dId = res.data
         myStoryUtil.getUserStory(res.data, page, that)
+      },
+      fail(res){
+        wx.showToast({
+          title: '获取用户信息失败',
+          icon: '../../image/warming.png',
+        })
       }
     }
     )
@@ -49,15 +51,9 @@ Page({
       title: '正在拷问服务器',
     })
 
-    page++
-
-    var did = wx.getStorage({
-      key: 'dId',
-      success: function (res) {
-        myStoryUtil.getUserStory(res.data, page, that)
-      }
-    }
-    )
+    page++   
+    myStoryUtil.getUserStory(dId, page, that)
+  
   },
 
   // 跳转到具体详情

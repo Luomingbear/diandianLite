@@ -1,13 +1,25 @@
 <!--pages/storyDetail/storyDetail.wxml-->
 <import src="../../template/temp.wxml" />
 <!-- 故事详情 -->
-<template is="storyDetail" data="{{...story}}"></template>
+<view class="container">
+  <template is="storyDetail" data="{{...story}}"></template>
 
-<view class = "part_line"></view>
+  <view class="part_line"></view>
 
-<!-- 评论 -->
-<view class="middle_text">热门评论</view>
-<view wx:for-items="{{commentList}}">
-	<template is="commentItem" data= "{{...item}}"></template>
-</view>		
+  <!-- 评论 -->
+  <view wx:if="{{commentList.length==0}}">
+    <view class="middle_text">暂无评论</view>
+  </view>
+  <view wx:else>
+    <view class="middle_text">热门评论</view>
+    <view wx:for-items="{{commentList}}">
+      <template is="commentItem" data="{{...item}}"></template>
+    </view>
+    <!-- 显示查看全部评论 -->
+    <view wx:if="commentList.length>=15">
+      <view class="line"></view>
+      <view class="middle_text" bindtap="seeAllComments">查看全部评论</view>
+    </view>
+  </view>
 
+</view>

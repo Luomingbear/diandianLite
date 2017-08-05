@@ -1,14 +1,39 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+function formatTime(time) {
+  var date = new Date(time)
+  var curTime = new Date()
+  var diff = (curTime.getTime() - date.getTime())/1000
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
+  if (diff <= 0) {
+    return date.getMonth() + "月" + date.getDate() + "日，已过期"
+  } else if (diff < 60 * 60) {
+    returnparseInt(diff / 60) + "分钟前"
+  } else if (diff < 60 * 60 * 24) {
+    return parseInt(diff / 60 / 60) + "小时前"
+  } else if(diff<60*60*24*7){
+    return parseInt(diff / 60 / 60 / 24) + "天前"
+  }else{
+    return date.getMonth() + "月" + date.getDate() + "日"+date.getHours()+"时"+date.getMinutes()+"分"
+  }
+  return diff
+}
 
+// 格式化销毁时间
+function formatDestroyTime(time) {
+  var date = new Date(time)
+  var curDate = new Date()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  var restTime = (date.getTime() - curDate.getTime()) / 1000
+  if (restTime <= 0) {
+    return date.getMonth() + "月" + date.getDate() + "日，已过期"
+  } else if (restTime < 60 * 60) {
+    return "剩余" + parseInt(restTime / 60) + "分钟"
+  } else if (restTime < 60 * 60 * 24) {
+    return "剩余" + parseInt(restTime / 60 / 60) + "小时"
+  } else {
+    return "剩余" + parseInt(restTime / 60 / 60 / 24) + "天"
+  }
+
+  return restTime
 }
 
 function formatNumber(n) {
@@ -17,5 +42,6 @@ function formatNumber(n) {
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDestroyTime: formatDestroyTime
 }

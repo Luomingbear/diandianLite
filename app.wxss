@@ -12,6 +12,10 @@
   background: #eff1f4;
 }
 
+.flex{
+  display: flex;
+}
+
 .line{
   height: 1px;
   display: flex;

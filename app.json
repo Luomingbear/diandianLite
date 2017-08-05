@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/login/login",
     "pages/mystory/mystory",
-    "pages/storyDetail/storyDetail"
+    "pages/storyDetail/storyDetail",
+    "pages/comments/comments"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,8 +1,8 @@
-.card_layout{
+.card_layout {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-bottom:20rpx;
+  padding-bottom: 20rpx;
 }
 
 .card_top {
@@ -19,30 +19,41 @@
   border-radius: 50%;
 }
 
-.avatar_small{
-   float: left;
+.avatar_small {
+  float: left;
   width: 60rpx;
   height: 60rpx;
   border-radius: 50%;
 }
 
 .nickname_layout {
-  display: flex;
   flex-direction: column;
   flex: auto;
 }
 
 .nickname {
-  display: flex;
   font-size: 14pt;
+  color: #221d1e;
+  margin-left: 10rpx;
+}
+
+.nickname_small {
+  font-size: 12pt;
   color: #221d1e;
   margin-left: 10rpx;
 }
 
 .rest_time {
   margin-top: 10rpx;
-  display: flex;
   font-size: 11pt;
+  color: #898989;
+  margin-left: 10rpx;
+}
+
+.rest_time_small {
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 9pt;
   color: #898989;
   margin-left: 10rpx;
 }
@@ -51,7 +62,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 10rpx;
+  padding: 10rpx 20rpx;
 }
 
 .icon_normal {
@@ -121,18 +132,20 @@
 }
 
 /*文本内容*/
-.content_full{
-  display:flex;
-  flex:auto;
-  width:100%;
-  margin :0 20rpx;
+
+.content_full {
+  display: flex;
+  flex: 1;
+  font-size: 14pt;
+  color: #221d1e;
+  margin: 0 20rpx;
+  word-wrap: break-all break-word;
 }
 
 /* 九宫格 */
 
 .cover_layout {
-  margin : 20rpx;
-
+  margin: 20rpx;
 }
 
 .cover_item {
@@ -144,7 +157,7 @@
   height: 350rpx;
   overflow: hidden;
   margin: 5rpx;
-  float: left ;
+  float: left;
 }
 
 .cover_item_three {
@@ -152,22 +165,22 @@
   height: 220rpx;
   margin: 5rpx;
   overflow: hidden;
-  float: left ;
+  float: left;
 }
 
-.comment{
-  display:flex;
-  flex:auto;
-  font-size:13pt;
-  color :#221d1e;
+.comment {
+  display: flex;
+  flex: auto;
+  font-size: 13pt;
+  color: #221d1e;
 }
 
-.reply{
-  display:flex;
-  flex:auto;
-  margin:20rpx;
-  padding:10rpx;
-  font-size:13pt;
-  color :#646464;
+.reply {
+  display: flex;
+  flex: auto;
+  margin: 20rpx;
+  padding: 10rpx;
+  font-size: 13pt;
+  color: #646464;
   background: #eff1f4;
 }

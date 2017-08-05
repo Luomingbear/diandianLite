@@ -6,8 +6,8 @@
     <view class="card_top" >
       <image src="{{userInfo.avatar}}" class="avatar"></image>
       <view class="nickname_layout">
-        <text class="nickname">{{userInfo.nickname}}</text>
-        <text class="rest_time">{{destroyTime}}</text>
+        <text class="flex nickname">{{userInfo.nickname}}</text>
+        <text class="flex rest_time">{{destroyTime}}</text>
       </view>
 
       <!-- 点赞 -->
@@ -54,7 +54,7 @@
 <template name="noMore">
 <view class="part_line"></view>
 <view class="middle_text">
-  <text>没有更多了</text>
+  <text>暂无更多</text>
 </view>
 </template>
 
@@ -66,23 +66,15 @@
   </view>
 </template>
 
-<!-- 九宫格图 -->
-<template name="nineGridLayout">
-  <view class="nineGridList" wx:for="{{storyPictures}}">
-    <view class="nineGridItem" bindtap="showImage">
-    <image src="{{item}}" class="nineGridImage"></image>
-    </view>
-  </view>
-</template>
-
+<!-- 卡片详情 -->
 <template name="storyDetail">
   <view class="card_layout">
   <view class = "part_line"></view>
   <view class="card_top" >
       <image src="{{userInfo.avatar}}" class="avatar"></image>
       <view class="nickname_layout">
-        <text class="nickname">{{userInfo.nickname}}</text>
-        <text class="rest_time">{{destroyTime}}</text>
+        <text class="flex nickname">{{userInfo.nickname}}</text>
+        <text class="flex rest_time">{{destroyTime}}</text>
       </view>
 
       <!-- 点赞 -->
@@ -110,7 +102,7 @@
 
   <!-- 文本内容 -->
   <view class = "content_full">
-    <text> {{content}} </text>    
+    <text > {{content}} </text>    
   </view>
 
   <!-- 如果图片数量等于1张，则显示一张图片，宽度铺满屏幕，高度自适应 -->
@@ -144,18 +136,17 @@
         <view class = "card_top">
           <image  src="{{userInfo.avatar}}" class = "avatar_small" ></image>
           <view class="nickname_layout">
-            <text class="nickname">{{userInfo.nickname}}</text>
-            <text class="rest_time">{{createTime}}</text>
+            <text class="nickname_small">{{userInfo.nickname}}</text>
+            <text class="rest_time_small">{{createTime}}</text>
             <view class = "margin_normal"></view>
             <view wx:if="{{reply==''}}">
               <text class = "comment"> {{comment}} </text>
             </view>  
             <view wx:else>
               <text class = "comment"> {{reply}} </text>
-              <text class = "reply"> {{comment}} </text>
+              <text class = "reply"> {{replyUser+":"+comment}} </text>
             </view>  
           </view>
         </view>
-        <view class = "content_full">   </view>
     </view>
 </template>
