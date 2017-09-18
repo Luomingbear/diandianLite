@@ -146,11 +146,7 @@
 /* 九宫格 */
 
 .cover_layout {
-<<<<<<< HEAD
   margin : 20rpx;
-=======
-  margin: 20rpx;
->>>>>>> 55779d235ea0877c59dc6adc1734f539cb562006
 }
 
 .cover_item {
