@@ -132,7 +132,6 @@
 
 .cover_layout {
   margin : 20rpx;
-
 }
 
 .cover_item {
