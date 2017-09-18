@@ -1,0 +1,12 @@
+<!--pages/comments/comments.wxml-->
+<import src="../../template/temp.wxml" />
+<view wx:for-items="{{commentList}}">
+	<template is="commentItem" data= "{{...item}}"></template>
+</view>		
+
+<view wx:if="{{cardList.length<10}}">
+  <template is="noMore"></template>
+</view>
+<view wx:else>
+  <template is="seeMore" ></template>
+</view>

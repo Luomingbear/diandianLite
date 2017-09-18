@@ -1,7 +1,7 @@
 <!--pages/near/near.wxml-->
 <import src="../../template/temp.wxml" />
 <view class="card_list" wx:for="{{cardList}}" wx:key="unique">
-  <template is="cardItem" data="{{...item}}" ></template>
+  <template is="cardItem" data="{{...item}}"></template>
 </view>
 
 <view wx:if="{{cardList.length<10}}">

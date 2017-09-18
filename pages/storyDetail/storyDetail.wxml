@@ -1,13 +1,36 @@
 <!--pages/storyDetail/storyDetail.wxml-->
 <import src="../../template/temp.wxml" />
 <!-- 故事详情 -->
-<template is="storyDetail" data="{{...story}}"></template>
+<view class="container">
+  <template is="storyDetail" data="{{...story}}"></template>
 
-<view class = "part_line"></view>
+  <view class="part_line"></view>
 
-<!-- 评论 -->
-<view class="middle_text">热门评论</view>
-<view wx:for-items="{{commentList}}">
-	<template is="commentItem" data= "{{...item}}"></template>
-</view>		
+  <!-- 评论 -->
+  <view wx:if="{{commentList.length==0}}">
+    <view class="middle_text">暂无评论</view>
+  </view>
+  <view wx:else>
+    <view class="middle_text">热门评论↓</view>
+    <view wx:for-items="{{commentList}}">
+      <template is="commentItem" data="{{...item}}"></template>
+    </view>
+    <!-- 显示查看全部评论 -->
+    <view wx:if="{{commentList.length>=10}}">
+      <view class="line"></view>
+      <view class="middle_text" bindtap="seeAllComments">查看全部评论</view>
+    </view>
+    <view style = "margin-bottom:100rpx"></view>
+  </view>
 
+  <!-- 发表评论 -->
+  <view wx:if="{{!outDate}}" class="fixed_bottom">
+    <view class="vertical_layout">
+      <view class="line"></view>
+      <view class="horizontal_layout vertical_middle">
+        <input placeholder="添加评论"  bindinput = "commentInput" value= "{{inputValue}}" ftype="text" class="comment_input" />
+        <view formType="submit" class="send" style="background:{{btnBg}}" bindtap = "send">发送</view>
+      </view>
+    </view>
+  </view>
+</view>

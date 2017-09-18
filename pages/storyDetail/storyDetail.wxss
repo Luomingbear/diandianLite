@@ -1,2 +1,30 @@
 /* pages/storyDetail/storyDetail.wxss */
 @import "../../template/temp.wxss";
+
+.fixed_bottom{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+
+.comment_input {
+  display: flex;
+  flex: auto;
+  font-size: 13pt;
+  margin: 20rpx;
+}
+
+.send {
+  display: flex;
+  width: 140rpx;
+  height: 60rpx;
+  margin: 0 20rpx;
+  font-size: 13pt;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  align-items: Center;
+  border-radius: 10rpx;
+}
+

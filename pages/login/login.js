@@ -15,7 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   dLogin: function (event) {
@@ -55,8 +54,14 @@ Page({
             title: '登陆成功',
           })
 
-          wx.setStorageSync("dId", result.data.userId)
-          wx.setStorageSync("userInfo", result.data)
+          wx.setStorage({
+            key: 'dId',
+            data: result.data.userId,
+          })
+          wx.setStorage({
+            key: 'userInfo',
+            data: result.data,
+          })
 
           //关闭当前页面，返回
           wx.navigateBack({
@@ -66,6 +71,7 @@ Page({
         } else {
           wx.showToast({
             title: '登陆失败',
+            image: "../../image/warming.png"
           })
         }
       }
@@ -81,6 +87,19 @@ Page({
   },
 
   dRegister: function (e) {
+  },
+
+  /**
+   * 微信登陆
+   */
+  weixinLoginTap: function () {
+    wx.getUserInfo({
+      success: function (res) {
+        var util = require("../../utils/util.js")
+        var that = this
+        util.weixinLogin(res.userInfo, that)
+      }
+    })
 
   }
 })

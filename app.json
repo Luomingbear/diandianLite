@@ -5,12 +5,14 @@
     "pages/mine/mine",
     "pages/login/login",
     "pages/mystory/mystory",
-    "pages/storyDetail/storyDetail"
+    "pages/storyDetail/storyDetail",
+    "pages/comments/comments",
+    "pages/mytag/mytag"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "点点",
+    "navigationBarTitleText": "故事鼠",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

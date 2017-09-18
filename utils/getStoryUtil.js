@@ -1,3 +1,9 @@
+// 获取推荐的故事
+var SUCCEED = 200
+var FAILED = 1000
+var EMPTY = 700
+var ERROR = 500
+
 function getRecommendStory(page, that) {
   wx.request({
     url: 'https://api.storyshu.com/getRecommendStory.php',
@@ -10,10 +16,18 @@ function getRecommendStory(page, that) {
     method: "POST",
     dataType: "JSON",
     success: function (res) {
-      var list = JSON.parse(res.data);
-      console.log(list.data);
+      var util = require("util.js")
+      var parse = JSON.parse(res.data);
+      var list = parse.data
+      console.log(list)
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i]
+        var time = util.formatCreateTime(item.createTime)
+        item.createTime = time
+        item.destroyTime = util.formatDestroyTime(item.destroyTime)
+      }
       that.setData({
-        cardList: list.data
+        cardList: list
       });
       wx.hideLoading();
       wx.stopPullDownRefresh();
@@ -21,6 +35,7 @@ function getRecommendStory(page, that) {
   })
 }
 
+// 获取附近的故事
 function getNearStory(postData, page, that) {
   wx.request({
     url: 'https://api.storyshu.com/getNearStory.php',
@@ -35,10 +50,17 @@ function getNearStory(postData, page, that) {
     method: "POST",
     dataType: "JSON",
     success: function (res) {
-      var list = JSON.parse(res.data);
-      // console.log(list.data);
+      var util = require("util.js")
+      var parse = JSON.parse(res.data);
+      var list = parse.data
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i]
+        var time = util.formatCreateTime(item.createTime)
+        item.createTime = time
+        item.destroyTime = util.formatDestroyTime(item.destroyTime)
+      }
       that.setData({
-        cardList: list.data
+        cardList: list
       });
       wx.hideLoading();
       wx.stopPullDownRefresh();
@@ -46,12 +68,13 @@ function getNearStory(postData, page, that) {
   })
 }
 
-function getUserStory(uid, page, that){
+// 获取用户发布的所有故事
+function getUserStory(uid, pages, that) {
   wx.request({
     url: 'https://api.storyshu.com/getUserStory.php',
     data: {
       userId: uid,
-      page: page
+      page: pages
     },
     header: {
       'content-type': 'application/json'
@@ -59,13 +82,22 @@ function getUserStory(uid, page, that){
     method: "POST",
     dataType: "JSON",
     success: function (res) {
-      var list = JSON.parse(res.data);
-      var beforelist = that.data.cardList
-      beforelist.concat(list.data) 
-      console.log(beforelist.concat(list.data));
+      var util = require("util.js")
+      var parse = JSON.parse(res.data);
+      console.log(parse)
+      var list = parse.data
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i]
+        var time = util.formatCreateTime(item.createTime)
+        item.createTime = time
+        item.destroyTime = util.formatDestroyTime(item.destroyTime)
+      }
+
+      var beforeList = that.data.cardList
+
       that.setData({
-        cardList: beforelist.concat(list.data)
-      }); 
+        cardList: beforeList.concat(list)
+      });
       wx.hideLoading();
       wx.stopPullDownRefresh();
     }
@@ -73,7 +105,7 @@ function getUserStory(uid, page, that){
 }
 
 // 获取故事详情
-function getStoryInfo(storyId,that){
+function getStoryInfo(storyId, that) {
   wx.request({
     url: 'https://api.storyshu.com/getStoryInfo.php',
     data: {
@@ -85,10 +117,14 @@ function getStoryInfo(storyId,that){
     method: "POST",
     dataType: "JSON",
     success: function (res) {
-      var result = JSON.parse(res.data);
-      console.log(result)
+      var result = JSON.parse(res.data)
+      var item = result.data
+      var util = require("util.js")
+      item.destroyTime = util.formatDestroyTime(item.destroyTime)
+
       that.setData({
-        story:result.data
+        story: item,
+        outDate: util.isOutDate(item.destroyTime)
       });
       wx.hideLoading();
       wx.stopPullDownRefresh();
@@ -96,8 +132,8 @@ function getStoryInfo(storyId,that){
   })
 }
 
-// 获取评论
-function getStoryHotComment(storyId,that){
+// 获取故事的热门评论
+function getStoryHotComment(storyId, that) {
   wx.request({
     url: 'https://api.storyshu.com/getHotComment.php',
     data: {
@@ -110,12 +146,93 @@ function getStoryHotComment(storyId,that){
     dataType: "JSON",
     success: function (res) {
       var result = JSON.parse(res.data);
+      var list = result.data
+      var util = require("util.js")
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i]
+        item.createTime = util.formatCreateTime(item.createTime)
+      }
       console.log(result)
       that.setData({
-        commentList:result.data
+        commentList: list
       });
       wx.hideLoading();
       wx.stopPullDownRefresh();
+    }
+  })
+}
+
+// 获取故事的所有评论
+function getStoryAllComment(storyId, page, that) {
+  wx.request({
+    url: 'https://api.storyshu.com/getStoryComment.php',
+    data: {
+      storyId: storyId,
+      page: page
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    dataType: "JSON",
+    success: function (res) {
+      var result = JSON.parse(res.data);
+      console.log(result)
+      if (result.code == SUCCEED) {
+        var list = result.data
+        var util = require("util.js")
+        for (var i = 0; i < list.length; i++) {
+          var item = list[i]
+          item.createTime = util.formatCreateTime(item.createTime)
+        }
+
+        var beforeList = that.data.commentList
+        beforeList.concat(list)
+        that.setData({
+          commentList: beforeList.concat(list)
+        });
+      }
+
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+    }
+  })
+}
+
+/**
+* 发布评论
+*/
+function issuseComment(commentData, that) {
+  wx.request({
+    url: 'https://api.storyshu.com/issueComment.php',
+    data: {
+      storyId: commentData.storyId,
+      userId: commentData.userId,
+      comment: commentData.comment,
+      createTime: commentData.createTime
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    dataType: "JSON",
+    success: function (res) {
+      var result = JSON.parse(res.data);
+      console.log(result)
+      if (result.code == SUCCEED) {
+        that.setData({
+          inputValue: '' //清空输入
+        })
+        getStoryHotComment(commentData.storyId, that)
+
+        wx.showToast({
+          title: "评论成功"
+        })
+      } else {
+        wx.showToast({
+          title: "评论失败"
+        })
+      }
     }
   })
 }
@@ -125,3 +242,5 @@ module.exports.getNearStory = getNearStory
 module.exports.getUserStory = getUserStory
 module.exports.getStoryInfo = getStoryInfo
 module.exports.getStoryHotComment = getStoryHotComment
+module.exports.getStoryAllComment = getStoryAllComment
+module.exports.issuseComment = issuseComment
