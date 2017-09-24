@@ -35,7 +35,7 @@
 
 “点点”是一款依据位置来分享和发现用户自创内容的APP，可以理解为*宝可梦GO版的微博*，所有的动态只会保留几天。如果各位对我的APP也有兴趣的话可以下载我的APP体验，与小程序相比增加了地图展示、即使讨论等功能，体验也更加优美，这款APP在持续不断的更新，期待有兴趣的人一起加入。
 
-**下载**(https:sss)
+**下载**(https://github.com/Luomingbear/StoryShu/blob/master/story060.apk?raw=true)
 
 **Github**(https://github.com/Luomingbear/StoryShu)
 
