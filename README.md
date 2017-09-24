@@ -1,4 +1,4 @@
-#diandianLite
+# diandianLite
 
 “点点”的小程序，一个简单的微信小程序实示例，数据接口使用的我自己开发的一跨APP里面的接口，比较简单功能实现了APP的里面的注册登录、查看附近的动态、查看推荐动态和评论等功能。因为是第一次做前端开发，所以界面编写还不太熟系，大量的使用到了flex布局。
 
@@ -10,7 +10,7 @@
 
 ## 项目结构
 
-!["https://image.storyshu.com/LLayoutManager.gif"]()
+!["LLayoutManager.gif"]()
 
 **文件夹**
 
