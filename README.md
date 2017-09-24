@@ -9,8 +9,7 @@
 啦啦啦啦啦啦啦啦
 
 ## 项目结构
-
-!["LLayoutManager.gif"]()
+<img src="/screenshot/mulu.png" width="435" height="300" />
 
 **文件夹**
 
